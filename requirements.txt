@@ -1,11 +1,6 @@
-streamlit==1.15.0
-imapclient==2.2.0
-beautifulsoup4==4.10.0
-pandas==1.3.3
-openpyxl==3.0.9
+
+streamlit==1.18.0
 Pillow==8.2.0
-docx2txt==0.8
-PyPDF2==1.26.0
 pytesseract==0.3.8
 
 
