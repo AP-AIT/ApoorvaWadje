@@ -1,5 +1,6 @@
-streamlit==1.15.0
+streamlit
 imapclient==2.1.0
-Pillow>=6.2.0,<8.3.0
+Pillow
 google-cloud-vision==2.3.3
+
 
