@@ -3,3 +3,4 @@ imapclient==2.1.0
 easyocr>=1.4.1
 Pillow>=6.2.0,<8.3.0
 google-cloud-vision==2.3.3
+
