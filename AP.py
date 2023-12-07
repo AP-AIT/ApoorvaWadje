@@ -4,14 +4,23 @@ import email
 from datetime import datetime, timedelta
 import io
 from PIL import Image
-import easyocr
+from google.cloud import vision_v1
+from google.cloud.vision_v1 import types
 
 def extract_text_from_image(image_bytes):
     try:
-        reader = easyocr.Reader(['en'])  # Initialize the easyocr reader for English language
-        result = reader.readtext(image_bytes)
-        extracted_text = ' '.join([entry[1] for entry in result])  # Extract the recognized text
-        return extracted_text
+        client = vision_v1.ImageAnnotatorClient()
+        image = types.Image(content=image_bytes)
+        response = client.text_detection(image=image)
+        
+        # Extract the recognized text
+        annotations = response.text_annotations
+        if annotations:
+            extracted_text = annotations[0].description
+            return extracted_text
+        else:
+            return "No text found in the image."
+
     except Exception as e:
         return f"Text extraction error: {e}"
 
