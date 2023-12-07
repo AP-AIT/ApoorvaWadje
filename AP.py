@@ -6,6 +6,7 @@ import io
 from PIL import Image
 import pytesseract
 
+
 # Set the path to the Tesseract executable (update it based on your installation)
 pytesseract.pytesseract.tesseract_cmd = '/usr/bin/tesseract'
 
