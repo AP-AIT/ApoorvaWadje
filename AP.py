@@ -4,16 +4,13 @@ import email
 from datetime import datetime, timedelta
 import io
 from PIL import Image
-import pytesseract
-from pytesseract import Output
-
-# Set the path to the Tesseract executable (change this to your Tesseract installation path)
-pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR'
+import easyocr
 
 def extract_text_from_image(image_bytes):
     try:
-        image = Image.open(io.BytesIO(image_bytes))
-        extracted_text = pytesseract.image_to_string(image, output_type=Output.STRING)
+        reader = easyocr.Reader(['en'])  # Initialize the easyocr reader for English language
+        result = reader.readtext(image_bytes)
+        extracted_text = ' '.join([entry[1] for entry in result])  # Extract the recognized text
         return extracted_text
     except Exception as e:
         return f"Text extraction error: {e}"
