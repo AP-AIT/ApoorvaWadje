@@ -1,5 +1,5 @@
 streamlit==1.10.0
 Pillow==8.0.1
 imapclient==2.1.0
-pytesseract==0.3.8
-tesseract
+pytesseract
+tesseract==4.1.1
