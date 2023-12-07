@@ -3,3 +3,4 @@ Pillow==8.0.1
 imapclient==2.1.0
 pytesseract==0.3.10
 tesseract
+
